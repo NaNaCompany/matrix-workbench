@@ -1,0 +1,80 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><base href="../"><title>Taller de matrices · NaNa Lab</title><link rel="stylesheet" href="style.css">
+<meta name="robots" content="index,follow">
+<meta name="description" content="Calcula matrices de 2×2 a 6×6 con fracciones exactas y consulta determinantes, inversas, rango, soluciones de Ax=b y operaciones por filas.">
+<link rel="canonical" href="https://nanalab.kr/matrix-workbench/es/">
+<link rel="alternate" hreflang="ko" href="https://nanalab.kr/matrix-workbench/">
+<link rel="alternate" hreflang="en" href="https://nanalab.kr/matrix-workbench/en/">
+<link rel="alternate" hreflang="es" href="https://nanalab.kr/matrix-workbench/es/">
+<link rel="alternate" hreflang="zh" href="https://nanalab.kr/matrix-workbench/zh/">
+<link rel="alternate" hreflang="ja" href="https://nanalab.kr/matrix-workbench/ja/">
+<link rel="alternate" hreflang="de" href="https://nanalab.kr/matrix-workbench/de/">
+<link rel="alternate" hreflang="x-default" href="https://nanalab.kr/matrix-workbench/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nanalab.kr/matrix-workbench/es/">
+<meta property="og:title" content="Taller de matrices">
+<meta property="og:description" content="Calcula matrices de 2×2 a 6×6 con fracciones exactas y consulta determinantes, inversas, rango, soluciones de Ax=b y operaciones por filas.">
+<meta property="og:image" content="https://nanalab.kr/matrix-workbench/og/es.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Taller de matrices">
+<meta name="twitter:description" content="Calcula matrices de 2×2 a 6×6 con fracciones exactas y consulta determinantes, inversas, rango, soluciones de Ax=b y operaciones por filas.">
+<meta name="twitter:image" content="https://nanalab.kr/matrix-workbench/og/es.jpg">
+<link rel="stylesheet" href="public.css">
+
+<!-- NaNa publisher: AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9767176956440077"
+        crossorigin="anonymous"></script>
+<!-- /NaNa publisher: AdSense -->
+<!-- NaNa publisher: GTM -->
+<script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })
+            (window, document, 'script', 'dataLayer', 'GTM-NV2WWQXB');
+    </script>
+<!-- /NaNa publisher: GTM -->
+<!-- NaNa publisher: Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2ZYSF0173P"></script>
+<script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-2ZYSF0173P');
+    </script>
+<!-- /NaNa publisher: Analytics -->
+</head><body>
+<!-- NaNa publisher: GTM fallback -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NV2WWQXB" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+<!-- /NaNa publisher: GTM fallback -->
+<header><a class="brand" href="./">[ M ] <span>WORKBENCH</span></a><nav aria-label="Idioma"><a lang="ko" href="./" >한국어</a> <a lang="en" href="en/" >English</a> <a lang="es" href="es/" aria-current="page">Español</a> <a lang="zh" href="zh/" >简体中文</a> <a lang="ja" href="ja/" >日本語</a> <a lang="de" href="de/" >Deutsch</a></nav></header><main><section class="intro"><p class="eyebrow">TALLER DE MATRICES</p><h1>Más allá de la respuesta.<br><span>Sigue cada operación de fila.</span></h1><p>Calcula determinantes, inversas, rango y espacios de soluciones de matrices 2×2–6×6 con fracciones exactas.</p></section><div class="workspace"><section class="panel input-panel"><h2><b>01</b>Entrada de matriz</h2><label for="matrix">Matriz cuadrada A</label><textarea id="matrix" rows="7" maxlength="5000" spellcheck="false" aria-describedby="inputHelp">2 1 0
+1 2 1
+0 1 2</textarea><p class="muted" id="inputHelp">Separa filas con saltos de línea y valores con espacios, comas o punto y coma. Se admiten enteros, hasta 6 decimales y fracciones a/b. No se admite notación científica.</p><label for="vector">Vector del lado derecho b (opcional)</label><input id="vector" maxlength="2000" value="1 0 1" aria-describedby="vectorHelp"><p class="muted" id="vectorHelp">Para resolver Ax=b, introduce tantos valores como el tamaño de la matriz. Déjalo vacío para analizar solo la matriz.</p><div class="actions"><button id="calculate">Calcular</button><button id="clear" class="secondary">Vaciar</button></div><div class="examples"><button id="example">Ejemplo invertible</button><button id="singular">Ejemplo singular</button><button id="zero">Ejemplo de matriz nula</button></div><label for="format">Formato de visualización</label><select id="format"><option value="fraction">Fracciones exactas</option><option value="decimal">Aproximaciones decimales</option></select><p id="status" role="status" aria-live="polite"></p></section><section class="panel output-panel"><h2><b>02</b>Resultados</h2><div class="stats"><div><span>Determinante det(A)</span><strong id="det">—</strong></div><div><span>Rango(A)</span><strong id="rank">—</strong></div><div><span>Nulidad</span><strong id="nullity">—</strong></div></div><div id="results"></div><div class="actions"><button id="copy" class="secondary" disabled>Copiar resultados</button><button id="export" class="secondary" disabled>Guardar pasos TXT</button></div></section></div><section class="panel steps-panel"><h2><b>03</b>Operaciones de Gauss–Jordan</h2><p class="muted">Cada paso muestra [A | I | b]. La columna b aparece solo si se proporciona. Se elige el pivote de mayor valor absoluto.</p><div id="steps"></div></section><details class="notes"><summary>Supuestos, límites y fuentes</summary><p>Se usa aritmética racional exacta con BigInt. Se rechazan denominadores cero y valores no finitos. El valor absoluto y el denominador no deben superar 1.000.000. Los decimales se tratan como racionales exactos. La visualización decimal usa 10 cifras significativas y no afecta al cálculo. Valores sin unidades. Los enteros intermedios se limitan a 1.000 dígitos. Los datos permanecen en el dispositivo y se borran al recargar.</p><p><a href="https://textbooks.math.gatech.edu/ila/row-reduction.html" target="_blank" rel="noreferrer">Georgia Tech: reducción de filas</a> · <a href="https://textbooks.math.gatech.edu/ila/matrix-inverses.html" target="_blank" rel="noreferrer">Georgia Tech: inversas de matrices</a></p></details></main><footer><span>Cálculo local · Sin subidas</span><a href="https://nanalab.kr/apps/">More Apps ↗</a></footer><script type="module" src="app.js"></script>
+<!-- NaNa publisher: Cloudflare fallback -->
+<script>
+(function () {
+  function ensureBeacon() {
+    // Cloudflare may inject its beacon at the edge. Reuse that script when present.
+    if (document.querySelector('script[src*="static.cloudflareinsights.com/beacon.min.js"]')) return;
+    var beacon = document.createElement('script');
+    beacon.defer = true;
+    beacon.src = 'https://static.cloudflareinsights.com/beacon.min.js';
+    beacon.setAttribute('data-cf-beacon', JSON.stringify({token: '9f3423bb0d034d91bbe1a12afeff2429'}));
+    document.head.appendChild(beacon);
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', ensureBeacon, {once: true});
+  else ensureBeacon();
+})();
+</script>
+<!-- /NaNa publisher: Cloudflare fallback -->
+</body></html>

@@ -1,0 +1,59 @@
+{
+  "slug": "matrix-workbench",
+  "url": "https://nanalab.kr/matrix-workbench/",
+  "languages": [
+    "ko",
+    "en",
+    "es",
+    "zh",
+    "ja",
+    "de"
+  ],
+  "locales": {
+    "ko": {
+      "name": "행렬 계산 과정",
+      "description": "2×2~6×6 행렬을 정확한 분수로 계산하며 행렬식·역행렬·계수·Ax=b 해와 행 연산 과정을 확인하세요.",
+      "image_alt": "행렬 계산 과정"
+    },
+    "en": {
+      "name": "Matrix Workbench",
+      "description": "Calculate 2×2 to 6×6 matrices with exact fractions and inspect determinants, inverses, rank, Ax=b solutions and row-operation steps.",
+      "image_alt": "Matrix Workbench"
+    },
+    "es": {
+      "name": "Taller de matrices",
+      "description": "Calcula matrices de 2×2 a 6×6 con fracciones exactas y consulta determinantes, inversas, rango, soluciones de Ax=b y operaciones por filas.",
+      "image_alt": "Taller de matrices"
+    },
+    "zh": {
+      "name": "矩阵计算过程",
+      "description": "用精确分数计算 2×2～6×6 矩阵，查看行列式、逆矩阵、秩、Ax=b 的解与行运算过程。",
+      "image_alt": "矩阵计算过程"
+    },
+    "ja": {
+      "name": "行列の計算過程",
+      "description": "2×2～6×6の行列を正確な分数で計算し、行列式・逆行列・階数・Ax=bの解と行基本変形を確認できます。",
+      "image_alt": "行列の計算過程"
+    },
+    "de": {
+      "name": "Matrix-Werkstatt",
+      "description": "Berechnen Sie Matrizen von 2×2 bis 6×6 mit exakten Brüchen und verfolgen Sie Determinanten, Inversen, Rang, Ax=b-Lösungen und Zeilenoperationen.",
+      "image_alt": "Matrix-Werkstatt"
+    },
+    "fr": {
+      "name": "Atelier de matrices",
+      "description": "Calculez des matrices de 2×2 à 6×6 en fractions exactes et consultez déterminants, inverses, rang, solutions de Ax=b et opérations sur les lignes.",
+      "image_alt": "Atelier de matrices"
+    },
+    "pt": {
+      "name": "Bancada de matrizes",
+      "description": "Calcule matrizes de 2×2 a 6×6 com frações exatas e confira determinantes, inversas, posto, soluções de Ax=b e operações de linha.",
+      "image_alt": "Bancada de matrizes"
+    },
+    "ru": {
+      "name": "Мастерская матриц",
+      "description": "Вычисляйте матрицы от 2×2 до 6×6 в точных дробях и изучайте определитель, обратную матрицу, ранг, решения Ax=b и преобразования строк.",
+      "image_alt": "Мастерская матриц"
+    }
+  }
+}

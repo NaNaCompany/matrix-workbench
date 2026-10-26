@@ -1,0 +1,14 @@
+{
+  "ideaId": "S020",
+  "slug": "matrix-workbench",
+  "title": "행렬 계산 과정",
+  "ready": true,
+  "summary": "정확한 BigInt 유리수와 부분 피벗 Gauss–Jordan 소거로 행렬식·역행렬·계수·영공간·Ax=b 및 모든 행 연산을 제공하는 6언어 도구",
+  "features": ["2×2~6×6 정사각행렬 안전 파싱", "정확한 분수 및 소수 근삿값 표시", "최대 절댓값 부분 피벗·모든 행 연산 단계", "det·rank·nullity·RREF·역행렬·특이행렬 판정", "영공간 기저와 선택 Ax=b 유일해·무한해·모순 판정", "예제 3종·결과 복사·과정 TXT", "6언어 라벨·오류·결과·도움말·수동 언어 메뉴"],
+  "tests": [{"name":"node --check dist/core.js", "pass":true},{"name":"node --check dist/app.js", "pass":true},{"name":"node --check dist/i18n.js", "pass":true},{"name":"node tests.mjs: 11 independent known fixtures and validation/route tests passed", "pass":true}],
+  "limitations": ["정사각행렬 2×2~6×6만 지원", "입력 절댓값·분모 1,000,000 이하, 소수 6자리 이하", "중간 정수 1,000자리 상한", "소수 표시는 유효숫자 10자리 근삿값", "복소수·고유값·직사각행렬 제외", "브라우저 시각 QA 미수행·소유자 담당"],
+  "sources": ["https://textbooks.math.gatech.edu/ila/row-reduction.html", "https://textbooks.math.gatech.edu/ila/matrix-inverses.html"],
+  "languages": ["ko","en","es","zh","ja","de"],
+  "languageRoutes": ["/","/en/","/es/","/zh/","/ja/","/de/"],
+  "entry": "dist/index.html"
+}

@@ -1,0 +1,80 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><base href="../"><title>行列の計算過程 · NaNa Lab</title><link rel="stylesheet" href="style.css">
+<meta name="robots" content="index,follow">
+<meta name="description" content="2×2～6×6の行列を正確な分数で計算し、行列式・逆行列・階数・Ax=bの解と行基本変形を確認できます。">
+<link rel="canonical" href="https://nanalab.kr/matrix-workbench/ja/">
+<link rel="alternate" hreflang="ko" href="https://nanalab.kr/matrix-workbench/">
+<link rel="alternate" hreflang="en" href="https://nanalab.kr/matrix-workbench/en/">
+<link rel="alternate" hreflang="es" href="https://nanalab.kr/matrix-workbench/es/">
+<link rel="alternate" hreflang="zh" href="https://nanalab.kr/matrix-workbench/zh/">
+<link rel="alternate" hreflang="ja" href="https://nanalab.kr/matrix-workbench/ja/">
+<link rel="alternate" hreflang="de" href="https://nanalab.kr/matrix-workbench/de/">
+<link rel="alternate" hreflang="x-default" href="https://nanalab.kr/matrix-workbench/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nanalab.kr/matrix-workbench/ja/">
+<meta property="og:title" content="行列の計算過程">
+<meta property="og:description" content="2×2～6×6の行列を正確な分数で計算し、行列式・逆行列・階数・Ax=bの解と行基本変形を確認できます。">
+<meta property="og:image" content="https://nanalab.kr/matrix-workbench/og/ja.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="行列の計算過程">
+<meta name="twitter:description" content="2×2～6×6の行列を正確な分数で計算し、行列式・逆行列・階数・Ax=bの解と行基本変形を確認できます。">
+<meta name="twitter:image" content="https://nanalab.kr/matrix-workbench/og/ja.jpg">
+<link rel="stylesheet" href="public.css">
+
+<!-- NaNa publisher: AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9767176956440077"
+        crossorigin="anonymous"></script>
+<!-- /NaNa publisher: AdSense -->
+<!-- NaNa publisher: GTM -->
+<script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })
+            (window, document, 'script', 'dataLayer', 'GTM-NV2WWQXB');
+    </script>
+<!-- /NaNa publisher: GTM -->
+<!-- NaNa publisher: Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2ZYSF0173P"></script>
+<script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-2ZYSF0173P');
+    </script>
+<!-- /NaNa publisher: Analytics -->
+</head><body>
+<!-- NaNa publisher: GTM fallback -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NV2WWQXB" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+<!-- /NaNa publisher: GTM fallback -->
+<header><a class="brand" href="./">[ M ] <span>WORKBENCH</span></a><nav aria-label="言語"><a lang="ko" href="./" >한국어</a> <a lang="en" href="en/" >English</a> <a lang="es" href="es/" >Español</a> <a lang="zh" href="zh/" >简体中文</a> <a lang="ja" href="ja/" aria-current="page">日本語</a> <a lang="de" href="de/" >Deutsch</a></nav></header><main><section class="intro"><p class="eyebrow">行列ワークベンチ</p><h1>答えの先へ。<br><span>行基本変形をたどる。</span></h1><p>2×2～6×6行列の行列式、逆行列、階数と解空間を正確な分数で計算します。</p></section><div class="workspace"><section class="panel input-panel"><h2><b>01</b>行列の入力</h2><label for="matrix">正方行列 A</label><textarea id="matrix" rows="7" maxlength="5000" spellcheck="false" aria-describedby="inputHelp">2 1 0
+1 2 1
+0 1 2</textarea><p class="muted" id="inputHelp">行は改行、値は空白・カンマ・セミコロンで区切ります。整数、小数6桁まで、a/b分数に対応します。指数表記は非対応です。</p><label for="vector">右辺ベクトル b（任意）</label><input id="vector" maxlength="2000" value="1 0 1" aria-describedby="vectorHelp"><p class="muted" id="vectorHelp">Ax=b を解く場合は行列の次数と同じ数の値を入力します。空欄なら行列のみ計算します。</p><div class="actions"><button id="calculate">計算</button><button id="clear" class="secondary">クリア</button></div><div class="examples"><button id="example">可逆行列の例</button><button id="singular">特異行列の例</button><button id="zero">零行列の例</button></div><label for="format">表示形式</label><select id="format"><option value="fraction">正確な分数</option><option value="decimal">小数の近似値</option></select><p id="status" role="status" aria-live="polite"></p></section><section class="panel output-panel"><h2><b>02</b>計算結果</h2><div class="stats"><div><span>行列式 det(A)</span><strong id="det">—</strong></div><div><span>階数 rank(A)</span><strong id="rank">—</strong></div><div><span>零空間の次元</span><strong id="nullity">—</strong></div></div><div id="results"></div><div class="actions"><button id="copy" class="secondary" disabled>結果をコピー</button><button id="export" class="secondary" disabled>計算過程を TXT 保存</button></div></section></div><section class="panel steps-panel"><h2><b>03</b>ガウス–ジョルダンの行基本変形</h2><p class="muted">各段階は [A | I | b] を表示します。b は入力時のみ含まれます。絶対値最大のピボットを選びます。</p><div id="steps"></div></section><details class="notes"><summary>仮定・制限・参考資料</summary><p>BigInt の正確な有理数演算を使い、分母ゼロと非有限値を拒否します。入力の絶対値と分母は1,000,000以下です。小数入力も正確な有理数として扱います。小数表示は有効数字10桁の近似で計算に影響しません。数値は無次元です。中間整数は1,000桁までです。入力と結果は端末内で処理し、再読み込みで消去します。</p><p><a href="https://textbooks.math.gatech.edu/ila/row-reduction.html" target="_blank" rel="noreferrer">Georgia Tech：行基本変形</a> · <a href="https://textbooks.math.gatech.edu/ila/matrix-inverses.html" target="_blank" rel="noreferrer">Georgia Tech：逆行列</a></p></details></main><footer><span>端末内で計算 · アップロードなし</span><a href="https://nanalab.kr/apps/">More Apps ↗</a></footer><script type="module" src="app.js"></script>
+<!-- NaNa publisher: Cloudflare fallback -->
+<script>
+(function () {
+  function ensureBeacon() {
+    // Cloudflare may inject its beacon at the edge. Reuse that script when present.
+    if (document.querySelector('script[src*="static.cloudflareinsights.com/beacon.min.js"]')) return;
+    var beacon = document.createElement('script');
+    beacon.defer = true;
+    beacon.src = 'https://static.cloudflareinsights.com/beacon.min.js';
+    beacon.setAttribute('data-cf-beacon', JSON.stringify({token: '9f3423bb0d034d91bbe1a12afeff2429'}));
+    document.head.appendChild(beacon);
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', ensureBeacon, {once: true});
+  else ensureBeacon();
+})();
+</script>
+<!-- /NaNa publisher: Cloudflare fallback -->
+</body></html>
